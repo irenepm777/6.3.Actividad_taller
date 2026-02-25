@@ -1,9 +1,9 @@
+```mermaid
 classDiagram
 direction LR
 
-%% =========================
+
 %% MODELO DE DOMINIO
-%% =========================
 
 class Vehiculo {
   -String matricula
@@ -29,7 +29,7 @@ class Cliente {
   +getVehiculos() List~Vehiculo~
 }
 
-Cliente "1" o-- "1..*" Vehiculo : posee
+Cliente "1" o-- "1..*" Vehiculo
 
 class Reparacion {
   -String codigo
@@ -42,7 +42,7 @@ class Reparacion {
   +getFecha() LocalDate
 }
 
-Vehiculo "1" *-- "0..*" Reparacion : historial
+Vehiculo "1" *-- "0..*" Reparacion
 
 class Factura {
   -String numero
@@ -53,9 +53,8 @@ class Factura {
   +getTotal() double
 }
 
-%% =========================
+
 %% MECÁNICOS
-%% =========================
 
 class Especialista {
   <<interface>>
@@ -70,13 +69,12 @@ class Mecanico {
 
 Especialista <|.. Mecanico
 
-%% =========================
+
 %% SERVICIOS
-%% =========================
 
 class Taller {
   +asignarReparacion(Mecanico, Reparacion) void
 }
 
-Taller ..> Mecanico : usa
-Taller ..> Reparacion : asigna
+Taller ..> Mecanico
+Taller ..> Reparacion
