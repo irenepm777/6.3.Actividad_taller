@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Java / compilados
+*.class
+bin/
+out/
+target/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Logs y temporales
+*.log
+*.tmp
